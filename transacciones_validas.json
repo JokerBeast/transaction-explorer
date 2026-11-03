@@ -1,0 +1,110 @@
+[
+  {
+    "source": "A",
+    "id": "A-001",
+    "amount": "120.50",
+    "currency": "USD",
+    "status": "completed",
+    "date": "2026-10-25",
+    "type": "deposit"
+  },
+  {
+    "source": "A",
+    "id": "A-002",
+    "amount": 0,
+    "currency": "eur",
+    "status": "pending",
+    "date": "2026-09-30",
+    "type": "payment"
+  },
+  {
+    "source": "A",
+    "id": "A-003",
+    "amount": "500.99",
+    "currency": "USD",
+    "status": "failed",
+    "date": "2026-10-20",
+    "type": "withdrawal"
+  },
+  {
+    "source": "A",
+    "id": "A-004",
+    "amount": " 45.75 ",
+    "currency": " USD ",
+    "status": "completed",
+    "date": "2026-10-22",
+    "type": "payment"
+  },
+  {
+    "source": "B",
+    "transaction_id": "B-001",
+    "value": 2500,
+    "ccy": "USD",
+    "state": "success",
+    "created_at": "25/10/2026",
+    "operation": "purchase"
+  },
+  {
+    "source": "B",
+    "transaction_id": "B-002",
+    "value": 105099,
+    "ccy": "EUR",
+    "state": "processing",
+    "created_at": "01/11/2026",
+    "operation": "cashout"
+  },
+  {
+    "source": "B",
+    "transaction_id": "B-003",
+    "value": 0,
+    "ccy": "USD",
+    "state": "error",
+    "created_at": "02/11/2026",
+    "operation": "topup"
+  },
+  {
+    "source": "B",
+    "transaction_id": "B-004",
+    "value": 199,
+    "ccy": "EUR",
+    "state": "success",
+    "created_at": "31/10/2026",
+    "operation": "purchase"
+  },
+  {
+    "source": "C",
+    "reference": "C-001",
+    "total": "35.75",
+    "currency_code": "EUR",
+    "payment_status": "approved",
+    "timestamp": "2026-10-25T14:30:00-06:00",
+    "category": "charge"
+  },
+  {
+    "source": "C",
+    "reference": "C-002",
+    "total": "0.00",
+    "currency_code": "USD",
+    "payment_status": "waiting",
+    "timestamp": "2026-11-01T23:59:59Z",
+    "category": "credit"
+  },
+  {
+    "source": "C",
+    "reference": "C-003",
+    "total": "102.1234",
+    "currency_code": "EUR",
+    "payment_status": "rejected",
+    "timestamp": "2026-10-01T08:00:00+00:00",
+    "category": "debit"
+  },
+  {
+    "source": "C",
+    "reference": "C-004",
+    "total": "1.99",
+    "currency_code": "USD",
+    "payment_status": "approved",
+    "timestamp": "2026-11-02T12:01:02-06:00",
+    "category": "charge"
+  }
+]

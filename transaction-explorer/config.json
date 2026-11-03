@@ -1,0 +1,31 @@
+{
+  "supported_currencies": ["USD", "EUR"],
+  "normalized_statuses": ["COMPLETED", "PENDING", "FAILED"],
+  "normalized_types": ["DEPOSIT", "WITHDRAWAL", "PAYMENT"],
+  "sources": {
+    "A": {
+      "name": "Banco tradicional",
+      "fields": {"transaction_id": "id", "amount": "amount", "currency": "currency", "status": "status", "transaction_date": "date", "transaction_type": "type"},
+      "status_map": {"completed": "COMPLETED", "pending": "PENDING", "failed": "FAILED"},
+      "type_map": {"deposit": "DEPOSIT", "withdrawal": "WITHDRAWAL", "payment": "PAYMENT"},
+      "date": {"kind": "date", "format": "%Y-%m-%d"},
+      "amount": {"kind": "units"}
+    },
+    "B": {
+      "name": "Billetera digital",
+      "fields": {"transaction_id": "transaction_id", "amount": "value", "currency": "ccy", "status": "state", "transaction_date": "created_at", "transaction_type": "operation"},
+      "status_map": {"success": "COMPLETED", "processing": "PENDING", "error": "FAILED"},
+      "type_map": {"topup": "DEPOSIT", "cashout": "WITHDRAWAL", "purchase": "PAYMENT"},
+      "date": {"kind": "date", "format": "%d/%m/%Y"},
+      "amount": {"kind": "minor_units", "divisors": {"USD": 100, "EUR": 100}, "integer_only": true}
+    },
+    "C": {
+      "name": "Procesador de pagos",
+      "fields": {"transaction_id": "reference", "amount": "total", "currency": "currency_code", "status": "payment_status", "transaction_date": "timestamp", "transaction_type": "category"},
+      "status_map": {"approved": "COMPLETED", "waiting": "PENDING", "rejected": "FAILED"},
+      "type_map": {"credit": "DEPOSIT", "debit": "WITHDRAWAL", "charge": "PAYMENT"},
+      "date": {"kind": "iso_datetime", "format": "ISO8601", "require_timezone": true},
+      "amount": {"kind": "decimal_string"}
+    }
+  }
+}

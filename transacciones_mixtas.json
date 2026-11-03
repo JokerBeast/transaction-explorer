@@ -1,0 +1,160 @@
+[
+  {
+    "source": "A",
+    "id": "A-001",
+    "amount": "120.50",
+    "currency": "USD",
+    "status": "completed",
+    "date": "2026-10-25",
+    "type": "deposit"
+  },
+  {
+    "source": "A",
+    "id": "A-002",
+    "amount": 0,
+    "currency": "eur",
+    "status": "pending",
+    "date": "2026-09-30",
+    "type": "payment"
+  },
+  {
+    "source": "B",
+    "transaction_id": "B-001",
+    "value": 2500,
+    "ccy": "USD",
+    "state": "success",
+    "created_at": "25/10/2026",
+    "operation": "purchase"
+  },
+  {
+    "source": "B",
+    "transaction_id": "B-002",
+    "value": 105099,
+    "ccy": "EUR",
+    "state": "processing",
+    "created_at": "01/11/2026",
+    "operation": "cashout"
+  },
+  {
+    "source": "C",
+    "reference": "C-001",
+    "total": "35.75",
+    "currency_code": "EUR",
+    "payment_status": "approved",
+    "timestamp": "2026-10-25T14:30:00-06:00",
+    "category": "charge"
+  },
+  {
+    "source": "C",
+    "reference": "C-002",
+    "total": "0.00",
+    "currency_code": "USD",
+    "payment_status": "waiting",
+    "timestamp": "2026-11-01T23:59:59Z",
+    "category": "credit"
+  },
+  {
+    "source": "C",
+    "reference": "C-003",
+    "total": "102.1234",
+    "currency_code": "EUR",
+    "payment_status": "rejected",
+    "timestamp": "2026-10-01T08:00:00+00:00",
+    "category": "debit"
+  },
+  {
+    "source": "C",
+    "reference": "C-004",
+    "total": "1.99",
+    "currency_code": "USD",
+    "payment_status": "approved",
+    "timestamp": "2026-11-02T12:01:02-06:00",
+    "category": "charge"
+  },
+  {
+    "source": "A",
+    "id": "ERR-A-1",
+    "amount": -20,
+    "currency": "USD",
+    "status": "completed",
+    "date": "2026-10-25",
+    "type": "deposit"
+  },
+  {
+    "source": "A",
+    "id": "ERR-A-3",
+    "amount": 20,
+    "currency": "JPY",
+    "status": "completed",
+    "date": "2026-10-25",
+    "type": "deposit"
+  },
+  {
+    "source": "A",
+    "id": "ERR-A-5",
+    "amount": 20,
+    "currency": "USD",
+    "status": "completed",
+    "date": "2026-02-30",
+    "type": "deposit"
+  },
+  {
+    "source": "B",
+    "transaction_id": "ERR-B-1",
+    "value": 100,
+    "ccy": "USD",
+    "state": "success",
+    "created_at": "31/02/2026",
+    "operation": "purchase"
+  },
+  {
+    "source": "B",
+    "transaction_id": "DUP-B",
+    "value": 200,
+    "ccy": "USD",
+    "state": "success",
+    "created_at": "25/10/2026",
+    "operation": "purchase"
+  },
+  {
+    "source": "B",
+    "transaction_id": "DUP-B",
+    "value": 300,
+    "ccy": "USD",
+    "state": "success",
+    "created_at": "25/10/2026",
+    "operation": "purchase"
+  },
+  {
+    "source": "C",
+    "reference": "ERR-C-2",
+    "total": "20.25",
+    "currency_code": "EUR",
+    "payment_status": "approved",
+    "timestamp": "2026-10-25T12:00:00",
+    "category": "charge"
+  },
+  {
+    "source": "X",
+    "id": "X-001",
+    "amount": 50
+  },
+  {
+    "source": "A",
+    "id": "SAME-01",
+    "amount": 25,
+    "currency": "USD",
+    "status": "completed",
+    "date": "2026-10-25",
+    "type": "deposit"
+  },
+  {
+    "source": "B",
+    "transaction_id": "SAME-01",
+    "value": 2500,
+    "ccy": "USD",
+    "state": "success",
+    "created_at": "25/10/2026",
+    "operation": "purchase"
+  }
+]

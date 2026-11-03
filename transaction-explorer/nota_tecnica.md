@@ -1,0 +1,15 @@
+# Nota técnica — Transaction Explorer
+
+**Alcance.** Se implementó una solución local en Python para normalizar, validar y explorar transacciones procedentes de tres fuentes ficticias, de acuerdo con los requerimientos de la actividad.
+
+**1. Modelo de datos.** Se conservan los nueve campos definidos: `transaction_id`, `source`, `amount`, `currency`, `status`, `transaction_date`, `transaction_type`, `is_valid` y `validation_errors`. Un registro válido contiene un `Decimal` monetario y fecha ISO como texto. Los originales se guardan aparte, por posición, para no extender el esquema. En inválidos, un monto imposible de interpretar usa `None` y un texto no normalizable usa cadena vacía: esta representación evita inventar valores y siempre se acompaña de errores.
+
+**2. Normalización.** `config.json` determina los campos, estados, tipos, monedas, fechas y reglas de importe. A conserva unidades; B divide centavos enteros entre 100 para USD/EUR; C interpreta cadenas decimales con punto. La lectura JSON evita conversiones monetarias intermedias a `float`. Se recortan espacios y se normalizan monedas y fuentes a mayúsculas. Los estados convergen a COMPLETED/PENDING/FAILED y las operaciones a DEPOSIT/WITHDRAWAL/PAYMENT. A/B conservan solo fecha; C conserva hora y offset, con precisión de hasta microsegundos. No se inventan horas ni se aplican tipos de cambio.
+
+**3. Validación.** Se acumulan errores por ID ausente, monto no numérico o negativo, moneda, fuente, estado o tipo desconocidos y fecha incompatible o imposible. Cero está permitido. FAILED no implica invalidez. Se invalidan todas las apariciones de un ID duplicado dentro de una fuente; el mismo ID entre fuentes está permitido. Un registro defectuoso no impide procesar los demás. Un documento vacío, malformado o sin array raíz se rechaza con un mensaje claro.
+
+**4. Inválidos y métricas.** Las filas inválidas se conservan en una colección separada, con originales y todos sus errores, y pueden inspeccionarse y exportarse. Las tarjetas de calidad y el conteo por fuente incluyen todo el lote; los conteos por estado/tipo y los totales monetarios solo incluyen válidas. Se suman todas las operaciones y estados válidos por moneda, sin representar saldos ni liquidaciones. La visualización redondea a dos decimales; cálculos y CSV conservan precisión. Los gráficos convierten únicamente sus coordenadas finales a números gráficos.
+
+**5. Arquitectura y pruebas.** `normalizer.py` lee y transforma, `validator.py` valida y separa, `metrics.py` agrega con Decimal y `app.py` coordina Streamlit, filtros y CSV. La configuración y los datos ficticios son externos. La suite es compatible con Pytest y unittest; comprueba reglas, diagnósticos, duplicados, JSON y métricas. Las pruebas realizadas y las verificaciones pendientes se resumen en el README.
+
+**6. Uso de IA.** Se utilizó Codex como herramienta de apoyo para estructurar los módulos, implementar funciones, elaborar pruebas y desarrollar la interfaz. Se revisaron las reglas documentadas de transformación y validación como parte del diseño del sistema; el resultado debe verificarse en el entorno final antes de su entrega.
